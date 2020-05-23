@@ -1,0 +1,40 @@
+.logo{
+	height: 30px ;
+	width: 30px;
+}
+.table-1{
+	width: 100%;
+	position: relative;
+	top: 2px;
+	font-family: times new roman;
+	border:2px solid #ddd;
+	height: 160px;
+}
+.table-1 tr th{
+	font-size: 11px;
+}
+.table-1:hover{
+	color: #000;
+}
+.table-1 tr td {
+	font-size: 10px;
+	height: 12px;
+}
+.table-1 thead{
+	background: linear-gradient(90deg,green,cyan,black);
+	border-bottom: 2px solid #fff;
+	color: #fff;
+}
+.table-1 tbody{
+	background: aqua;
+}
+.small-box-3 {
+	height: 160px;
+	position: relative;
+	top: 90px;
+	left: -150px;
+	background: #fff;
+}
+.small-box-3:hover{
+	color : #000;
+}
