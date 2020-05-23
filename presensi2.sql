@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Des 2019 pada 05.05
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.3.0
+-- Generation Time: May 23, 2020 at 04:33 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensi`
+-- Table structure for table `absensi`
 --
 
 CREATE TABLE `absensi` (
@@ -44,7 +44,7 @@ CREATE TABLE `absensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `absensi`
+-- Dumping data for table `absensi`
 --
 
 INSERT INTO `absensi` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `prodi`, `kelas`, `no_orangtua`, `keterangan`, `status`, `kodemhs`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `absensi` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `prodi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensi2`
+-- Table structure for table `absensi2`
 --
 
 CREATE TABLE `absensi2` (
@@ -71,20 +71,25 @@ CREATE TABLE `absensi2` (
   `tanggal` varchar(12) DEFAULT NULL,
   `masuk` varchar(20) DEFAULT NULL,
   `pulang` varchar(20) DEFAULT NULL,
-  `prodi` varchar(30) DEFAULT NULL
+  `status` varchar(25) NOT NULL,
+  `prodi` varchar(30) DEFAULT NULL,
+  `kelas` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `absensi2`
+-- Dumping data for table `absensi2`
 --
 
-INSERT INTO `absensi2` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `prodi`) VALUES
-(21, 'Dasep Depiyawan', '19101051', '2019-12-06', '10:53:45', NULL, 'Sistem Informasi');
+INSERT INTO `absensi2` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `status`, `prodi`, `kelas`) VALUES
+(21, 'Dasep Depiyawan', '19101051', '2019-12-06', '10:53:45', NULL, '', 'Sistem Informasi', ''),
+(22, 'Dasep Depiyawan', '19101051', '2020-05-23', '9:18:21', '9:24:04', 'Hadir', 'Sistem Informasi', 'MB'),
+(23, 'Murry Febian', '19101011', '2020-05-23', '9:24:39', '9:24:48', 'Hadir', 'Sistem Informasi', 'MB'),
+(24, 'Indah Safitri', '19101036', '2020-05-23', '9:25:33', NULL, '', 'Sistem Informasi', 'MB');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -96,7 +101,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `nama`, `pass`, `role_id`, `poto`) VALUES
@@ -107,7 +112,7 @@ INSERT INTO `admin` (`id`, `nama`, `pass`, `role_id`, `poto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -125,7 +130,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `mahasiswa`
+-- Dumping data for table `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `prodi`, `alamat`, `tempat_lahir`, `tgl_lahir`, `no_hp`, `no_orangtua`, `kelas`, `kodemhs`) VALUES
@@ -141,7 +146,7 @@ INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `prodi`, `alamat`, `tempat_lahir`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rekapabsen`
+-- Table structure for table `rekapabsen`
 --
 
 CREATE TABLE `rekapabsen` (
@@ -158,7 +163,7 @@ CREATE TABLE `rekapabsen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `rekapabsen`
+-- Dumping data for table `rekapabsen`
 --
 
 INSERT INTO `rekapabsen` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `keterangan`, `prodi`, `status`, `kelas`) VALUES
@@ -192,65 +197,65 @@ INSERT INTO `rekapabsen` (`id`, `nama`, `nim`, `tanggal`, `masuk`, `pulang`, `ke
 --
 
 --
--- Indeks untuk tabel `absensi`
+-- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `absensi2`
+-- Indexes for table `absensi2`
 --
 ALTER TABLE `absensi2`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `mahasiswa`
+-- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indeks untuk tabel `rekapabsen`
+-- Indexes for table `rekapabsen`
 --
 ALTER TABLE `rekapabsen`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `absensi`
+-- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
--- AUTO_INCREMENT untuk tabel `absensi2`
+-- AUTO_INCREMENT for table `absensi2`
 --
 ALTER TABLE `absensi2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `mahasiswa`
+-- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
 
 --
--- AUTO_INCREMENT untuk tabel `rekapabsen`
+-- AUTO_INCREMENT for table `rekapabsen`
 --
 ALTER TABLE `rekapabsen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
